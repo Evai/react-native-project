@@ -14,7 +14,6 @@ import {
 import Util from './utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconFA from 'react-native-vector-icons/FontAwesome';
-import IconMI from 'react-native-vector-icons/MaterialIcons';
 import Swiper from 'react-native-swiper';
 import Stopwatch from './Stopwatch';
 import TabBarIos from './TabBarIOS';
