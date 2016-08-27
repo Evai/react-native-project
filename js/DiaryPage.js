@@ -98,7 +98,8 @@ let Page = React.createClass ({
 							this.setState({
 								diaryTime: '没有历史日记',
 								diaryTitle: '没有历史日记',
-								diaryBody: ''
+								diaryBody: '',
+								progress:true,
 							});
 						}
 					},
@@ -123,7 +124,7 @@ let Page = React.createClass ({
 			diaryTime: '读取中...',
 			diaryTitle: '读取中...',
 			diaryBody: '读取中...',
-			progress:null
+			progress:false
 		}
 	},
 	readingPreviousPressed: function () {
@@ -288,9 +289,6 @@ let Page = React.createClass ({
 						<ProgressBar progress={this.state.progress}
 									styleAttr="Large"/>
 					</View>
-					<NativeBar onNaviBarPress={this._onNaviBarPress}
-							naviBarStatus={naviSatus}
-					/>
 				</View>
 			)	
 		}
@@ -303,9 +301,6 @@ let Page = React.createClass ({
 					searchKeyword = {this.searchKeyword}
 					writeDiary = {this.writeDiary}
 					diaryListDataSource={this.state.diaryListDataSource}
-			/>
-			<NativeBar onNaviBarPress={this._onNaviBarPress}
-						naviBarStatus={naviSatus}
 			/>
 			</View>
 			

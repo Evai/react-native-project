@@ -20,6 +20,8 @@ import TabBarIos from './TabBarIOS';
 import AdjustProgress from './AdjustProgress';
 import DatePicker from './DatePicker';
 import GetLocation from './GetLocation';
+import WebView from './WebView';
+import DiaryPage from './DiaryPage';
 class Home extends Component{
 	constructor() {
 		super();
@@ -69,6 +71,24 @@ class Home extends Component{
 				size:50,
 				color:"#FF856C",
 				hideNav: true,
+			},{
+				key:5,
+				title:"WebView",
+				component: WebView,
+				isFA: false,
+				icon: "logo-youtube",
+				size:50,
+				color:"#2AA2EF",
+				hideNav: true,
+			},{
+				key:6,
+				title:"DiaryPage",
+				component: DiaryPage,
+				isFA: false,
+				icon: "ios-bookmarks",
+				size:50,
+				color:"#FF856C",
+				hideNav: true,
 			}]
 		}
 	}
@@ -81,7 +101,7 @@ class Home extends Component{
 		this.props.navigator.push({
 			title: this.state.days[index].title,
 			component: this.state.days[index].component,
-			navigationBarHidden: this.state.days[index].hideNav,
+			navigationBar: this.state.days[index].hideNav,
 		})
 	}
 	render() {

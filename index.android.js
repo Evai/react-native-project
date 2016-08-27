@@ -17,9 +17,9 @@ import {
 } from 'react-native';
 import RegisterLeaf from './js/RegisterLeaf';
 import Home from './js/Home';
-import FindPage from './js/FindPage';
+import FindPage from './js/WebView';
 import MePage from './js/MePage';
-import Page from './js/Page';
+import Page from './js/DiaryPage';
 import ImageEquallyEnlarge from './js/ImageEquallyEnlarge';
 const defaultRoute = {
     name: 'Home'

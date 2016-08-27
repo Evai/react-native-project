@@ -15,7 +15,7 @@ let FindPage = React.createClass ({
 	getInitialState: function() {
 		return {
 			source:{
-				uri:'http://news.sina.com.cn'//打开网址
+				uri:'https://www.youtube.com'//打开网址
 			},
 			status:'no page loaded',//默认状态栏文字
 			backButtonEnabled:false,//后退按钮是否可按
@@ -62,7 +62,7 @@ let FindPage = React.createClass ({
 				})
 				return;
 		}
-		
+
 	},
 	goBack: function() {
 		this.refs.webViewRef.goBack();
@@ -126,9 +126,6 @@ let FindPage = React.createClass ({
 				<View style={styles.statusBar}>
 					<Text style={styles.statusBarText}>{this.state.status}</Text>
 				</View>
-				<NativeBar onNaviBarPress={this._onNaviBarPress}
-							naviBarStatus={naviSatus}
-				/>
 			</View>
 		);
 //		return (
@@ -147,7 +144,7 @@ let FindPage = React.createClass ({
 const styles = StyleSheet.create({
 	container:{
 		flex:1,
-		backgroundColor:'blue'
+		backgroundColor:'#FFF'
 	},
 	addressBarRow:{
 		flexDirection:'row',
