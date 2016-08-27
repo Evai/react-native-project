@@ -1,15 +1,11 @@
-/**
- * Day 1
- * A stop watch
- */
 'use strict';
 import React, { Component } from 'react';
 import {
-  ListView,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
+    ListView,
+    StyleSheet,
+    Text,
+    TouchableHighlight,
+    View
 } from 'react-native';
 import Util from './utils';
 
@@ -17,14 +13,14 @@ class WatchFace extends Component{
   static propTypes = {
     sectionTime: React.PropTypes.string.isRequired,
     totalTime: React.PropTypes.string.isRequired,
-    }; 
+  };
 
   render() {
     return(
-      <View style={styles.watchFaceContainer}>
-        <Text style={styles.sectionTime}>{this.props.sectionTime}</Text>
-        <Text style={styles.totalTime}>{this.props.totalTime}</Text>
-      </View>
+        <View style={styles.watchFaceContainer}>
+          <Text style={styles.sectionTime}>{this.props.sectionTime}</Text>
+          <Text style={styles.totalTime}>{this.props.totalTime}</Text>
+        </View>
     )
   }
 }
@@ -35,26 +31,26 @@ class WatchControl extends Component{
     clearRecord: React.PropTypes.func.isRequired,
     startWatch: React.PropTypes.func.isRequired,
     addRecord: React.PropTypes.func.isRequired,
-  }; 
+  };
 
   constructor(props){
     super(props);
     this.state = {
-      watchOn: true, 
+      watchOn: true,
       startBtnText: "启动",
       startBtnColor: "#60B644",
       stopBtnText: "计次",
       underlayColor:"#fff",
     };
   }
-	componentWillMount() {
+  componentWillMount() {
 //		console.log(this.state.watchOn)
-	}
+  }
   _startWatch() {
     this.setState({
       watchOn: !this.state.watchOn
     });
-    
+
     if (this.state.watchOn) {
       this.props.startWatch()
       this.setState({
@@ -71,7 +67,7 @@ class WatchControl extends Component{
         stopBtnText: "复位",
         underlayColor:"#eee"
       })
-    } 
+    }
   }
 
   _addRecord() {
@@ -87,42 +83,42 @@ class WatchControl extends Component{
 
   render() {
     return(
-      <View style={styles.watchControlContainer}>
-        <View style={{flex:1,alignItems:"flex-start"}}>
-          <TouchableHighlight style={styles.btnStop} underlayColor={this.state.underlayColor} onPress={()=>this._addRecord()}>
-            <Text style={styles.btnStopText}>{this.state.stopBtnText}</Text>
-          </TouchableHighlight>
+        <View style={styles.watchControlContainer}>
+          <View style={{flex:1,alignItems:"flex-start"}}>
+            <TouchableHighlight style={styles.btnStop} underlayColor={this.state.underlayColor} onPress={()=>this._addRecord()}>
+              <Text style={styles.btnStopText}>{this.state.stopBtnText}</Text>
+            </TouchableHighlight>
           </View>
           <View style={{flex:1,alignItems:"flex-end"}}>
             <TouchableHighlight style={styles.btnStart} underlayColor="#eee" onPress={()=> this._startWatch()}>
               <Text style={[styles.btnStartText,{color:this.state.startBtnColor}]}>{this.state.startBtnText}</Text>
             </TouchableHighlight>
           </View>
-      </View>
+        </View>
     )
   }
 }
 
 class WatchRecord extends Component{
   static propTypes = {
-        record: React.PropTypes.array.isRequired,
-    }; 
+    record: React.PropTypes.array.isRequired,
+  };
 
   render() {
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2}),
-    theDataSource = ds.cloneWithRows(this.props.record);
+        theDataSource = ds.cloneWithRows(this.props.record);
     return (
-      <ListView
-        style={styles.recordList}
-        dataSource={theDataSource}
-        renderRow={(rowData) => 
-          <View style={styles.recordItem}>
-            <Text style={styles.recordItemTitle}>{rowData.title}</Text>
-            <View style={{alignItems: "center"}}>
-              <Text style={styles.recordItemTime}>{rowData.time}</Text>
-            </View>
-          </View>}
-          />
+        <ListView
+            style={styles.recordList}
+            dataSource={theDataSource}
+            renderRow={(rowData) =>
+                <View style={styles.recordItem}>
+                  <Text style={styles.recordItemTitle}>{rowData.title}</Text>
+                  <View style={{alignItems: "center"}}>
+                    <Text style={styles.recordItemTime}>{rowData.time}</Text>
+                  </View>
+                </View>}
+        />
     );
   }
 }
@@ -130,25 +126,25 @@ class WatchRecord extends Component{
 export default class extends Component{
   constructor() {
     super();
-      this.state = {
-        stopWatch: false,
-        resetWatch: false,
-        intialTime: 0,
-        currentTime:0,
-        recordTime:0,
-        timeAccumulation:0,
-        totalTime: "00:00.00",
-        sectionTime: "00:00.00",
-        recordCounter: 0,
-        record:[
-          {title:"",time:""},
-          {title:"",time:""},
-          {title:"",time:""},
-          {title:"",time:""},
-          {title:"",time:""},
-          {title:"",time:""},
-          {title:"",time:""}
-        ],
+    this.state = {
+      stopWatch: false,
+      resetWatch: false,
+      intialTime: 0,
+      currentTime:0,
+      recordTime:0,
+      timeAccumulation:0,
+      totalTime: "00:00.00",
+      sectionTime: "00:00.00",
+      recordCounter: 0,
+      record:[
+        {title:"",time:""},
+        {title:"",time:""},
+        {title:"",time:""},
+        {title:"",time:""},
+        {title:"",time:""},
+        {title:"",time:""},
+        {title:"",time:""}
+      ],
     };
   }
 
@@ -173,7 +169,7 @@ export default class extends Component{
     }
     let milSecond, second, minute, countingTime, secmilSecond, secsecond, secminute, seccountingTime;
     let interval = setInterval(
-        () => { 
+        () => {
           this.setState({
             currentTime: (new Date()).getTime()
           })
@@ -191,7 +187,7 @@ export default class extends Component{
           })
           if (this.state.stopWatch) {
             this.setState({
-              timeAccumulation: countingTime 
+              timeAccumulation: countingTime
             })
             clearInterval(interval)
           };
@@ -241,16 +237,16 @@ export default class extends Component{
         {title:"",time:""},
         {title:"",time:""}
       ],
-     });
+    });
   }
 
   render(){
     return(
-      <View style={styles.watchContainer}>
-        <WatchFace totalTime={this.state.totalTime} sectionTime={this.state.sectionTime}></WatchFace>
-        <WatchControl addRecord={()=>this._addRecord()} clearRecord={()=>this._clearRecord()} startWatch={()=>this._startWatch()} stopWatch={()=>this._stopWatch()}></WatchControl>
-        <WatchRecord record={this.state.record}></WatchRecord>
-      </View>
+        <View style={styles.watchContainer}>
+          <WatchFace totalTime={this.state.totalTime} sectionTime={this.state.sectionTime}></WatchFace>
+          <WatchControl addRecord={()=>this._addRecord()} clearRecord={()=>this._clearRecord()} startWatch={()=>this._startWatch()} stopWatch={()=>this._stopWatch()}></WatchControl>
+          <WatchRecord record={this.state.record}></WatchRecord>
+        </View>
     )
   }
 }

@@ -1,8 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
 'use strict';
 import React, { Component } from 'react';
 import {
@@ -33,21 +28,21 @@ var NaviModule = React.createClass({
         this._navigator = navigator;
         let Component = router.component;
         if(router.component) {
-        		return (
-	            <Component {...router.params} navigator={navigator} />
-	        );
+            return (
+                <Component {...router.params} navigator={navigator} />
+            );
         }
         switch (router.name) {
-        		case 'Home':
-        			return <Home navigator={navigator} />
-        		case 'FindPage':
-        			return <FindPage navigator={navigator} />
-        		case 'MePage':
-        			return <MePage navigator={navigator} />
-        		case 'Page':
-        			return <Page navigator={navigator} />
+            case 'Home':
+                return <Home navigator={navigator} />
+            case 'FindPage':
+                return <FindPage navigator={navigator} />
+            case 'MePage':
+                return <MePage navigator={navigator} />
+            case 'Page':
+                return <Page navigator={navigator} />
         }
-        
+
     },
     _renderNavBar: function() {
         const styles = {
@@ -72,13 +67,7 @@ var NaviModule = React.createClass({
                         </TouchableOpacity>
                     );
                 } else {
-                    // return (
-                    //     <TouchableOpacity
-                    //         onPress={() => navigator.pop()}
-                    //         style={styles.button}>
-                    //         <Text style={styles.buttonText}>Logo</Text>
-                    //     </TouchableOpacity>
-                    // );
+                    return null;
                 }
             },
             RightButton(route, navigator, index, navState) {
@@ -91,14 +80,14 @@ var NaviModule = React.createClass({
                         </TouchableOpacity>
                     );
                 } else {
-                    return null
+                    return null;
                 }
 
             },
             Title(route, navigator, index, navState) {
                 return (
                     <View style={styles.title}>
-                        <Text style={styles.buttonText}>{route.title ? route.title : 'Home'}</Text>
+                        <Text style={styles.buttonText}>{route.title ? route.title : 'React Native Project'}</Text>
                     </View>
                 );
             }
@@ -176,22 +165,22 @@ var NaviModule = React.createClass({
 //     }
 })
 var styles = StyleSheet.create({
-	container:{
-		backgroundColor:'blue'
-	},
+    container:{
+        backgroundColor:'blue'
+    },
     itemWrapper:{
         backgroundColor: '#f3f3f3'
     },
-	imageStyle1:{
-		width:240,
-		height:360,
-		backgroundColor:'red'
-	},
-	imageStyle2:{
-		width:300,
-		height:460,
-		backgroundColor:'red'
-	},
+    imageStyle1:{
+        width:240,
+        height:360,
+        backgroundColor:'red'
+    },
+    imageStyle2:{
+        width:300,
+        height:460,
+        backgroundColor:'red'
+    },
 })
 // var NaviModule = React.createClass({
 //     _onLayout: function (event) {
