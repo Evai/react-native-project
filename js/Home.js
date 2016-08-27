@@ -18,7 +18,7 @@ import Swiper from 'react-native-swiper';
 import Stopwatch from './Stopwatch';
 import TabBarIos from './TabBarIOS';
 import AdjustProgress from './AdjustProgress';
-import Picker from './Picker';
+import DatePicker from './DatePicker';
 import GetLocation from './GetLocation';
 class Home extends Component{
 	constructor() {
@@ -54,7 +54,7 @@ class Home extends Component{
 		  },{
 			  key:3,
 			  title:"Picker",
-			  component: Picker,
+			  component: DatePicker,
 			  isFA: true,
 			  icon: "crosshairs",
 			  size:50,

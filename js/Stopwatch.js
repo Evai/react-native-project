@@ -1,7 +1,3 @@
-/**
- * Day 1
- * A stop watch
- */
 'use strict';
 import React, { Component } from 'react';
 import {

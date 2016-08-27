@@ -72,13 +72,7 @@ var NaviModule = React.createClass({
                         </TouchableOpacity>
                     );
                 } else {
-                    // return (
-                    //     <TouchableOpacity
-                    //         onPress={() => navigator.pop()}
-                    //         style={styles.button}>
-                    //         <Text style={styles.buttonText}>Logo</Text>
-                    //     </TouchableOpacity>
-                    // );
+                    return null;
                 }
             },
             RightButton(route, navigator, index, navState) {
@@ -91,14 +85,14 @@ var NaviModule = React.createClass({
                         </TouchableOpacity>
                     );
                 } else {
-                    return null
+                    return null;
                 }
 
             },
             Title(route, navigator, index, navState) {
                 return (
                     <View style={styles.title}>
-                        <Text style={styles.buttonText}>{route.title ? route.title : 'Home'}</Text>
+                        <Text style={styles.buttonText}>{route.title ? route.title : 'React Native Project'}</Text>
                     </View>
                 );
             }
