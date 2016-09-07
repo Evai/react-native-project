@@ -45,13 +45,14 @@ class DiaryReader extends Component {
 						</Text>
 					</View>
 				</View>
-				<TextInput style={MCV.diaryBodyStyle,{color:'black'}}
-						multiline={true}
-						editable={false}
-						value={this.props.diaryBody}
-				/>
+				<View style={MCV.diaryReaderStyle}>
+				<Text style={MCV.textInReader,{color:'black'}}>
+					{this.props.diaryBody}
+				</Text>
+				</View>
 			</View>
 		)
 	}
 }
+
 module.exports = DiaryReader;

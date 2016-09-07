@@ -56,6 +56,12 @@ const MCV = StyleSheet.create({
 		backgroundColor:'grey',
 		fontSize:textSize
 	},
+	diaryReaderStyle:{
+		flex:1,
+		margin:4,
+		width:totalWidth - 8,
+		backgroundColor:'grey',
+	},
 	smallButton:{
 		height:textSize * 1.4,
 		backgroundColor:'gray',
